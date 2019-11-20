@@ -24,14 +24,14 @@ function App() {
     return (
         <>
             <div className="atmosphere-container">
-                <div class="atmosphere"></div>
-                <div class="stars"></div>
+                <div className="atmosphere"></div>
+                <div className="stars"></div>
             </div>
             <div className="App">
                 {apodData === {} ? (
                     <h3>Loading...</h3>
                 ) : (
-                    <Apod data={apodData} />
+                    <Apod data={apodData} currentDate={currentDate.toLocaleString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}/>
                 )}
                 <Pagination
                     currentDate={currentDate}
