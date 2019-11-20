@@ -46,13 +46,13 @@ export default ({ setApodDate, setCurrentDate, currentDate }) => {
             <PaginationArrow
                 clickHandler={() => setDates(yesterday, apiDateYesterday)}
             >
-                ← Yesterday
+                ← Previous
             </PaginationArrow>
             {formatDate(currentDate) !== formatDate(today) && (
                 <PaginationArrow
                     clickHandler={() => setDates(tomorrow, apiDateTomorrow)}
                 >
-                    Tomorrow →
+                    Next →
                 </PaginationArrow>
             )}
         </ul>

@@ -84,6 +84,7 @@ img {
   height: 75vh;
 }
 
+/* To make videos responsive and stay to scale - https://medium.com/@kevinsimper/full-width-youtube-embed-with-react-js-responsive-embed-509de7e7c3bf */
 .video {
   position: relative;
   padding-bottom: 56.25%;
