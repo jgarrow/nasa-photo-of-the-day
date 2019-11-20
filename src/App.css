@@ -1,5 +1,40 @@
+.atmosphere-container {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+}
+
+.atmosphere, .stars {
+  position: absolute;
+	display: block;
+  top: 0; 
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  width: 100%; 
+  height: 100%;
+}
+
+.atmosphere {
+  z-index: 0;
+	background: transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
+	animation: move-twinkle-back 200s linear infinite;
+}
+
+.stars {
+  z-index: -1;
+	background: #000 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
+}
+
 .App {
   text-align: center;
+  margin: 2rem auto;
 }
 
 .App-logo {
@@ -65,5 +100,14 @@ img {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes move-twinkle-back {
+	from {
+    background-position: 0 0;
+  }
+	to {
+    background-position: -10000px 5000px;
   }
 }
