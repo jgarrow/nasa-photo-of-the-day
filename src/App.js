@@ -1,9 +1,40 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import styled from "styled-components";
 
 import Apod from "./components/apod";
 import Pagination from "./components/pagination";
+
+const AtmosphereContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+`
+
+const Atmosphere = styled.div`
+    position: absolute;
+    display: block;
+    top: 0; 
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    width: 100%; 
+    height: 100%;
+    background-repeat: repeat;
+    background-origin: top;
+    background-position: center;
+    z-index: ${props => props.stars ? "-1" : "0"};
+    background-color: ${props => props.stars === true ? "#000" : "transparent"};
+    background-image: ${props => props.stars === true ? "url('https://image.ibb.co/mjnygo/stars.png')" : "url('https://image.ibb.co/ir1DE8/twinkling.png')"};
+    animation: ${props => props.stars === true ? "null" : "move-twinkle-back 200s linear infinite"};
+`
 
 function App() {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -23,10 +54,10 @@ function App() {
 
     return (
         <>
-            <div className="atmosphere-container">
-                <div className="atmosphere"></div>
-                <div className="stars"></div>
-            </div>
+            <AtmosphereContainer>
+                <Atmosphere />
+                <Atmosphere stars={true} />
+            </AtmosphereContainer>
             <div className="App">
                 {apodData === {} ? (
                     <h3>Loading...</h3>

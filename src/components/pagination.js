@@ -1,7 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const PaginationContainer = styled.ul`
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto;
+`
+
+const Arrow = styled.li`
+    list-style-type: none;
+    cursor: pointer;
+`
 
 const PaginationArrow = ({ clickHandler, children }) => {
-    return <li onClick={clickHandler}>{children}</li>;
+    return <Arrow onClick={clickHandler}>{children}</Arrow>;
 };
 
 export default ({ setApodDate, setCurrentDate, currentDate }) => {
@@ -42,7 +55,7 @@ export default ({ setApodDate, setCurrentDate, currentDate }) => {
     }
 
     return (
-        <ul>
+        <PaginationContainer>
             <PaginationArrow
                 clickHandler={() => setDates(yesterday, apiDateYesterday)}
             >
@@ -55,6 +68,6 @@ export default ({ setApodDate, setCurrentDate, currentDate }) => {
                     Next →
                 </PaginationArrow>
             )}
-        </ul>
+        </PaginationContainer>
     );
 };
